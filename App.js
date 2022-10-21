@@ -17,10 +17,30 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 
+function DrawerNavigator(){
+  return(
+    <Drawer.Navigator useLegacyImplementation={true} initialRouteName="Home">
+      <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="Contact" component={Contact} />
+    </Drawer.Navigator>
+  )
+}
+
+
 export default function App() {
   return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator 
+          screenOptions={{
+            headerStyle: {backgroundColor: 'skyblue'},
+            headerTintColor: 'white',
+            contentStyle: {backgroundColor: 'skyblue'}
+          }}
+        >
+          <Stack.Screen name="Drawer" component={DrawerNavigator} />
+          
+        
           <Stack.Screen name="About" component={About} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Contact" component={Contact} />
